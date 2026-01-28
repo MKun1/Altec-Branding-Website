@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTEC BRANDING | High-Quality Custom Printing</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    
+    <!-- GSAP & ScrollTrigger (will be added in head for now) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+
+     <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+
+
+    <!--Stylesheet and -->
+    
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="images\WhatsApp Image 2026-01-15 at 12.22.27 PM.jpeg">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <!-- Logo (Icon + Text) -->
+            <a href="#" class="logo">
+                
+                <img src="images\WhatsApp Image 2026-01-15 at 12.22.27 PM.jpeg" alt="" class="logo-icon">
+               
+                <div class="logo-text">
+                    ALTEC BRANDING
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                <li><a href="#clients" class="nav-link">Clients</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+                <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <div class="mobile-menu-container">
+            <button class="mobile-menu-close" id="mobileMenuClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="mobile-menu-logo">
+                <div class="logo-icon">
+                    <img src="images/WhatsApp Image 2026-01-15 at 12.22.27 PM.jpeg" alt="ALTEC BRANDING Logo">
+                </div>
+                <div class="logo-text">ALTEC BRANDING</div>
+            </div>
+            
+            <ul class="mobile-nav-links">
+                <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+                <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+                <li><a href="#clients" class="mobile-nav-link">Our Clients</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                <li><a href="pricing.html" class="mobile-nav-link">Pricing</a></li>
+            </ul>
+            
+            <div class="mobile-menu-cta">
+                <a href="#contact" class="btn btn-primary mobile-cta-btn">Get Quote</a>
+            </div>
+            
+    
+        </div>
+    </div>
+
+
+
+
+
+
+            <!-- CTA Button (Desktop) -->
+            <a href="#contact" class="btn-nav">Get Quote</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tagline">Precision Printing & Branding</div>
+                <h1 class="hero-title">
+                    Your Vision, <span>Perfectly Printed</span>
+                </h1>
+                <p class="hero-description">
+                    ALTEC Printing and Branding delivers high-quality customized printing services with reliable turnaround times, consistent quality and affordable pricing. Specializing in printed apparel, branding materials, promotional items and more! Service open to individuals, businesses, churches, schools, events and corporate clients.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <i class="fas fa-images"></i> View Portfolio
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-file-alt"></i> Get Custom Quote
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="hero-scroll-indicator">
+                <span>Scroll to Explore</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Services + Process Combo Section -->
+    <section class="services-process-section" id="services">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="section-title">How We Deliver Excellence</h2>
+                <p class="section-subtitle">Our proven process ensures your vision becomes reality with precision and care</p>
+            </div>
+
+            <div class="combo-grid">
+                <!-- Left Column: Process -->
+                <div class="process-column">
+                    <h3 class="column-title">Our Process</h3>
+                    <div class="process-steps">
+                        <!-- Step 1 -->
+                        <div class="process-step"data-step="1">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <h4 class="step-title">Consult & Conceptualize</h4>
+                                <p class="step-description">We begin with understanding your vision, target audience, and requirements to create a tailored printing strategy.</p>
+                            </div>
+                            <div class="step-connector"></div>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="process-step" data-step="2">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <h4 class="step-title">Design & Prepare</h4>
+                                <p class="step-description">Our team prepares your artwork with precision, ensuring optimal quality for the chosen printing method and materials.</p>
+                            </div>
+                            <div class="step-connector"></div>
+                        </div>
+                        
+                        <!-- Step 3 -->
+                        <div class="process-step" data-step="3">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <h4 class="step-title">Print & Deliver</h4>
+                                <p class="step-description">Using state-of-the-art equipment, we execute the print with meticulous attention to detail and deliver on time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-note">
+                        <i class="fas fa-bolt"></i>
+                        <p>Reliable turnaround times • Consistent quality • Affordable pricing</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Services -->
+                <div class="services-column">
+                    <h3 class="column-title" >Our Services</h3>
+                    <div class="services-grid">
+                        <!-- Service 1 -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <h4 class="service-title">Printed Apparel</h4>
+                            <p class="service-description">Custom t-shirts, hoodies, uniforms, and team wear with vibrant, long-lasting prints.</p>
+                            <ul class="service-tags">
+                                <li>T-Shirts</li>
+                                <li>Hoodies</li>
+                                <li>Uniforms</li>
+                                <li>Team Wear</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Service 2 -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <h4 class="service-title">Branding Materials</h4>
+                            <p class="service-description">Professional business cards, letterheads, brochures, and corporate identity materials.</p>
+                            <ul class="service-tags">
+                                <li>Business Cards</li>
+                                <li>Letterheads</li>
+                                <li>Brochures</li>
+                                <li>Brand Kits</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Service 3 -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <h4 class="service-title">Promotional Items</h4>
+                            <p class="service-description">Custom mugs, pens, bags, and other promotional products to elevate your brand.</p>
+                            <ul class="service-tags">
+                                <li>Mugs & Pens</li>
+                                <li>Tote Bags</li>
+                                <li>Custom Merch</li>
+                                <li>Event Gifts</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Service 4 -->
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <h4 class="service-title">Events & Corporate</h4>
+                            <p class="service-description">Banners, signage, event materials, and corporate printing for businesses of all sizes.</p>
+                            <ul class="service-tags">
+                                <li>Banners</li>
+                                <li>Signage</li>
+                                <li>Event Materials</li>
+                                <li>Corporate Printing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="services-note">
+                        <p>Perfect for: <span class="client-types">Individuals • Small Businesses • Churches • Schools • Events • Corporate Clients</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Portfolio Showcase Section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="portfolio-header">
+                <h2 class="section-title">Our Work Gallery</h2>
+                <p class="section-subtitle">Explore our portfolio of successful printing projects across different categories</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="apparel">Apparel</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="promo">Promotional</button>
+                <button class="filter-btn" data-filter="corporate">Corporate</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Item 1: Apparel -->
+                <div class="portfolio-item" data-category="apparel" data-client="School">
+                    <div class="portfolio-image">
+                        <img src="images\schooljersey.jpeg">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>School Team Apparel</h4>
+                                <p>Custom kits for high school sports teams</p>
+                                <button class="view-details-btn" data-item="1">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Apparel</span>
+                        <h3 class="portfolio-title">Custom Team Kits</h3>
+                        <span class="client-type">School Event</span>
+                    </div>
+                </div>
+
+                <!-- Item 2: Branding -->
+                <div class="portfolio-item" data-category="branding" data-client="Small Business">
+                    <div class="portfolio-image">
+                        <img src="images\natashabells.jpeg" alt="Business Branding Materials">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Complete Brand Package</h4>
+                                <p>Business cards, letterheads, t-shirts and brand guidelines</p>
+                                <button class="view-details-btn" data-item="2">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Branding</span>
+                        <h3 class="portfolio-title">Business Identity Package</h3>
+                        <span class="client-type">Small Business</span>
+                    </div>
+                </div>
+
+                <!-- Item 3: Promotional -->
+                <div class="portfolio-item" data-category="promo" data-client="Corporate">
+                    <div class="portfolio-image">
+                        <img src="images\promo client.jpeg" alt="Promotional Products">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Corporate Gift Set</h4>
+                                <p>Custom mugs, pens, and diaries for corporate clients</p>
+                                <button class="view-details-btn" data-item="3">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Promotional</span>
+                        <h3 class="portfolio-title">Corporate Promo Items</h3>
+                        <span class="client-type">Corporate Client</span>
+                    </div>
+                </div>
+
+                <!-- Item 4: Apparel -->
+                <div class="portfolio-item" data-category="apparel" data-client="Church">
+                    <div class="portfolio-image">
+                        <img src="images\zaoga.jpeg" alt="Church Event Apparel">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Church Event Hoodies</h4>
+                                <p>Custom t-shirts for church youth group event</p>
+                                <button class="view-details-btn" data-item="4">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Apparel</span>
+                        <h3 class="portfolio-title">Youth Group T-shirts</h3>
+                        <span class="client-type">Church</span>
+                    </div>
+                </div>
+
+                <!-- Item 5: Branding -->
+                <div class="portfolio-item" data-category="branding" data-client="Individual">
+                    <div class="portfolio-image">
+                        <img src="images\brand3.jpeg" alt="Personal Branding">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Personal Gift </h4>
+                                <p>Custom branding for a loved one.</p>
+                                <button class="view-details-btn" data-item="5">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Branding</span>
+                        <h3 class="portfolio-title">Gift package Package</h3>
+                        <span class="client-type">Individual</span>
+                    </div>
+                </div>
+
+                <!-- Item 6: Events -->
+                <div class="portfolio-item" data-category="events" data-client="Event">
+                    <div class="portfolio-image">
+                        <img src="images\WhatsApp Image 2026-01-20 at 3.19.18 PM.jpeg" alt="Event Materials">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Conference Materials</h4>
+                                <p>diaries, mugs, pens for a company's conference</p>
+                                <button class="view-details-btn" data-item="6">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Events</span>
+                        <h3 class="portfolio-title">Conference Materials</h3>
+                        <span class="client-type">Event</span>
+                    </div>
+                </div>
+
+                <!-- Item 7: Branding -->
+                <div class="portfolio-item" data-category="branding" data-client="Individual">
+                    <div class="portfolio-image">
+                        <img src="images\brand2.jpeg" alt="Personal Branding">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Personal Brand Kit</h4>
+                                <p>Custom branding for freelancer</p>
+                                <button class="view-details-btn" data-item="7">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Branding</span>
+                        <h3 class="portfolio-title">Freelancer Brand Package</h3>
+                        <span class="client-type">Individual</span>
+                    </div>
+                </div>
+
+                <!-- Item 8: Promotional -->
+                <div class="portfolio-item" data-category="promo" data-client="Small Business">
+                    <div class="portfolio-image">
+                        <img src="images\business2.jpeg" alt="Retail Promo Items">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h4>Retail Promotional Set</h4>
+                                <p>branded mugs and merchandise for a local shop</p>
+                                <button class="view-details-btn" data-item="8">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-category">Promotional</span>
+                        <h3 class="portfolio-title">Shop Promo Merchandise</h3>
+                        <span class="client-type">Small Business</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="portfolio-load-more">
+                <button class="btn btn-primary" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i> Load More Projects
+                </button>
+            </div>
+        </div>
+
+        <!-- Portfolio Modal (Hidden by default) -->
+        <div class="portfolio-modal" id="portfolioModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+                <div class="modal-body">
+                    <div class="modal-image">
+                        <img src="" alt="" id="modalImage">
+                    </div>
+                    <div class="modal-info">
+                        <div class="modal-categories">
+                            <span class="modal-category" id="modalCategory">Apparel</span>
+                            <span class="modal-client" id="modalClient">School Event</span>
+                        </div>
+                        <h2 id="modalTitle">Project Title</h2>
+                        <div class="modal-description" id="modalDescription">
+                            <p>Detailed project description will appear here.</p>
+                        </div>
+                        <div class="modal-details">
+                            <h4>Project Details</h4>
+                            <ul id="modalDetailsList">
+                                <!-- Details will be populated by JavaScript -->
+                            </ul>
+                        </div>
+                        <div class="modal-cta">
+                            <p>Interested in a similar project?</p>
+                            <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+<!-- Client Section -->
+    <section class="clients-section" id="clients">
+
+        <div class="container">
+            <!-- Top Row: Client Types -->
+                        
+                <div class="clients-section-header">
+                        <div class="header-tag" >Our Community</div>
+                        <h2 class="section-title">
+                            <span class="title-line">Building Brands,</span>
+                            <span class="title-line accent">One Client at a Time</span>
+                        </h2>
+                        <p class="section-subtitle">Explore the diverse sectors we serve through our high-quality printing services</p>
+                        
+                 </div>
+
+
+            
+            <!-- Sector Visual Backgrounds -->
+            <!-- Sector Visuals Slider - Single Section -->
+            <div class="sector-slider-container">
+                <div class="sector-slider">
+                    <!-- Slide 1: Individuals -->
+                    <div class="sector-slide active" data-slide="1" data-sector="individuals">
+                        <div class="slide-background"></div>
+                        <div class="slide-overlay"></div>
+                        <div class="slide-content">
+                            <div class="slide-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 class="slide-title">Individuals</h3>
+                            <div class="slide-description">
+                                <p>Custom projects for personal gifts, creative endeavors, and special occasions. Perfect for turning personal visions into tangible prints.</p>
+                            </div>
+                            <div class="slide-stats">
+                                <span><i class="fas fa-check-circle"></i> Personal Consultation</span>
+                                <span><i class="fas fa-check-circle"></i> One-of-a-kind Designs</span>
+                                <span><i class="fas fa-check-circle"></i> Special Occasion Focus</span>
+                            </div>
+                        </div>
+                    </div>
+        
+        <!-- Slide 2: Small Businesses -->
+        <div class="sector-slide" data-slide="2" data-sector="business">
+            <div class="slide-background"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h3 class="slide-title">Small Businesses</h3>
+                <div class="slide-description">
+                    <p>Branding and marketing materials that help local businesses stand out. From business cards to promotional materials.</p>
+                </div>
+                <div class="slide-stats">
+                    <span><i class="fas fa-check-circle"></i> Brand Development</span>
+                    <span><i class="fas fa-check-circle"></i> Marketing Materials</span>
+                    <span><i class="fas fa-check-circle"></i> Local Business Focus</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Churches -->
+        <div class="sector-slide" data-slide="3" data-sector="church">
+            <div class="slide-background"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-icon">
+                    <i class="fas fa-church"></i>
+                </div>
+                <h3 class="slide-title">Churches</h3>
+                <div class="slide-description">
+                    <p>Apparel, banners, and materials for religious organizations and community events that bring people together.</p>
+                </div>
+                <div class="slide-stats">
+                    <span><i class="fas fa-check-circle"></i> Community Events</span>
+                    <span><i class="fas fa-check-circle"></i> Group Apparel</span>
+                    <span><i class="fas fa-check-circle"></i> Event Materials</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Schools -->
+        <div class="sector-slide" data-slide="4" data-sector="school">
+            <div class="slide-background"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="slide-title">Schools</h3>
+                <div class="slide-description">
+                    <p>Team apparel, educational materials, and event printing for schools, universities, and educational institutions.</p>
+                </div>
+                <div class="slide-stats">
+                    <span><i class="fas fa-check-circle"></i> Team Uniforms</span>
+                    <span><i class="fas fa-check-circle"></i> Educational Materials</span>
+                    <span><i class="fas fa-check-circle"></i> Event Printing</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Events -->
+        <div class="sector-slide" data-slide="5" data-sector="events">
+            <div class="slide-background"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3 class="slide-title">Events</h3>
+                <div class="slide-description">
+                    <p>Complete print solutions for conferences, weddings, parties, and special occasions that make events memorable.</p>
+                </div>
+                <div class="slide-stats">
+                    <span><i class="fas fa-check-circle"></i> Conference Materials</span>
+                    <span><i class="fas fa-check-circle"></i> Wedding Stationery</span>
+                    <span><i class="fas fa-check-circle"></i> Event Branding</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 6: Corporate -->
+        <div class="sector-slide" data-slide="6" data-sector="corporate">
+            <div class="slide-background"></div>
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+                <div class="slide-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3 class="slide-title">Corporate Clients</h3>
+                <div class="slide-description">
+                    <p>Large-scale branding, office signage, and corporate campaigns for businesses seeking professional impact.</p>
+                </div>
+                <div class="slide-stats">
+                    <span><i class="fas fa-check-circle"></i> Large-scale Projects</span>
+                    <span><i class="fas fa-check-circle"></i> Corporate Branding</span>
+                    <span><i class="fas fa-check-circle"></i> Office Signage</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Controls -->
+    <div class="slider-controls">
+        <button class="slider-btn prev-btn" aria-label="Previous sector">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="slider-dots">
+            <button class="slider-dot active" data-slide="1" aria-label="Go to Individuals"></button>
+            <button class="slider-dot" data-slide="2" aria-label="Go to Small Businesses"></button>
+            <button class="slider-dot" data-slide="3" aria-label="Go to Churches"></button>
+            <button class="slider-dot" data-slide="4" aria-label="Go to Schools"></button>
+            <button class="slider-dot" data-slide="5" aria-label="Go to Events"></button>
+            <button class="slider-dot" data-slide="6" aria-label="Go to Corporate"></button>
+        </div>
+        
+        <button class="slider-btn next-btn" aria-label="Next sector">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+                
+                <!-- Auto-play toggle -->
+                <div class="slider-autoplay">
+                    <button class="autoplay-btn active" id="autoplayToggle" aria-label="Pause auto rotation">
+                        <i class="fas fa-pause"></i> Pause Auto-Rotation
+                    </button>
+                </div>
+            </div>
+
+
+
+        
+        </div>
+    </section>
+
+    
+
+ <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="section-title">Get Your Custom Quote</h2>
+                <p class="section-subtitle">Ready to bring your vision to life? Contact us for a detailed quote and exceptional service</p>
+            </div>
+            
+            <!-- Contact Row -->
+            <div class="contact-row">
+                
+                        <div class="contact-form-column">
+                            <h3 class="column-title">Request a Quote</h3>
+                            <p class="form-subtitle">Tell us about your project and we'll provide a detailed quote within 24 hours</p>
+                            
+                            <form class="quote-form" id="quoteForm">
+                                <div class="form-group">
+                                    <label for="name">Full Name *</label>
+                                    <input type="text" id="name" name="name" required placeholder="John Smith">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                                </div>
+                                
+                                <!-- ADDED: Phone Number Field -->
+                                <div class="form-group">
+                                    <label for="phone">Phone Number (Optional)</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+26378654321">
+                                    <small class="field-hint">We'll call only if email communication isn't sufficient</small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="projectType">Project Type *</label>
+                                    <select id="projectType" name="projectType" required>
+                                        <option value="" disabled selected>Select a project type</option>
+                                        <option value="apparel">Printed Apparel</option>
+                                        <option value="branding">Branding Materials</option>
+                                        <option value="promo">Promotional Items</option>
+                                        <option value="corporate">Corporate Printing</option>
+                                        <option value="events">Event Materials</option>
+                                        <option value="other">Other Project</option>
+                                    </select>
+                                </div>
+        
+                                <div class="form-group">
+                                    <label for="details">Project Details</label>
+                                    <textarea id="details" name="details" rows="3" placeholder="Brief description of your project, quantities, timeline, etc."></textarea>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <label for="newsletter">Receive tips and updates about printing & branding (optional)</label>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary submit-btn">
+                                    <i class="fas fa-paper-plane"></i> Request Quote
+                                </button>
+                                
+                                <p class="form-note">We'll respond within 24 hours with a detailed quote. No spam, ever.</p>
+                            </form>
+                        </div>
+
+                
+                    <div class="contact-info-column">
+                        <h3 class="column-title">Contact Information</h3>
+                        <p class="info-subtitle">Prefer to reach out directly? Here's how to contact us</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-details">
+                                    <h4>Email Us</h4>
+                                    <a href="mailto:altecbranding@gmail.com">altecbranding@gmail.com</a>
+                                    <p>Typically respond within 2 hours</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="method-details">
+                                    <h4>Call Us</h4>
+                                    <a href="tel:+263782698281">+263782698281 
+                                        <br> <a href="tel:+263717286033">+263717286033 
+                                            <br> <a href="tel: +263787648111"> +263787648111</a>
+                                    <p>Mon-Fri, 8AM-5PM</p>
+                                </div>
+                            </div>
+                            
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="method-details">
+                                        <h4>Visit Us</h4>
+                                        <p>5 30th Avenue<br>Harare</p>
+                                        
+                                        <!-- Container for the interactive map -->
+                                        <div id="map-container" class="map-responsive-container">
+
+                                            <!-- The map will be inserted here by JavaScript -->
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        
+                        <div class="business-hours">
+                            <h4>Business Hours</h4>
+                            <div class="hours-grid">
+                                <div class="hours-day">Monday - Friday</div>
+                                <div class="hours-time">8:00 AM - 5:00 PM</div>
+                                <div class="hours-day">Saturday</div>
+                                <div class="hours-time">9:00 AM - 1:00 PM</div>
+                                <div class="hours-day">Sunday</div>
+                                <div class="hours-time">Closed</div>
+                            </div>
+                        </div> 
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Logo & Description -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <img src="images/WhatsApp Image 2026-01-15 at 12.22.27 PM.jpeg" alt="ALTEC BRANDING Logo">
+                        </div>
+                        <div class="logo-text">ALTEC BRANDING</div>
+                    </div>
+                    <p class="footer-description">
+                        High-quality customized printing services specializing in printed apparel, branding materials, 
+                        promotional items, and related print products for diverse clients.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/profile.php?id=100089325230989" target="_blank" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@altecprinting?_r=1&_t=ZS-93EY3iJQXGE"  target="_blank" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        
+                        <a href="https://wa.me/+263782698281" target="_blank" class="social-link" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+
+                        <a href="#"  target="_blank" class="social-link" aria-label="Tik Tok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#clients">Our Clients</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-services">
+                    <h4 class="footer-title">Our Services</h4>
+                    <ul class="services-list">
+                        <li><a href="#services">Printed Apparel</a></li>
+                        <li><a href="#services">Branding Materials</a></li>
+                        <li><a href="#services">Promotional Items</a></li>
+                        <li><a href="#services">Corporate Printing</a></li>
+                        <li><a href="#services">Event Materials</a></li>
+                        <li><a href="#services">Custom Projects</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h5>Address</h5>
+                                <p>5, 30th Avenue<br>Harare</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h5>Phone</h5>
+                                +263782698281
+                                <br>+263717286033
+                                 <br>+263787648111 
+
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <a href="altecbranding@gmail.com">altecbranding@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h5>Business Hours</h5>
+                                <p>Mon-Fri: 8AM-5PM<br>Sat: 9AM-1PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; <span id="currentYear"></span> ALTEC BRANDING. All rights reserved.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="privacypolicy.html" target="_blank">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="termsandconditions.html" target="_blank">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
+                <div class="footer-credits">
+                    <p>Designed with <i class="fas fa-heart"></i> for print excellence</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </footer>
+
+    
+
+    
+
+
+
+
+
+
+<script src="index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Branding Solutions & Pricing | Altec Branding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="icon" type="image/x-icon" href="images\WhatsApp Image 2026-01-15 at 12.22.27 PM.jpeg">
+    
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-navy: #0A2463;
+            --accent-cyan: #00BFFF;
+            --accent-magenta: #FF00FF;
+            --light-bg: #F8F9FA;
+            --dark-text: #212529;
+            --gray-text: #6C757D;
+            --pure-white: #FFFFFF;
+            --success-green: #28a745;
+            --warning-orange: #ffc107;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --section-padding: clamp(3rem, 8vw, 6rem);
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-text);
+            line-height: 1.6;
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        .pricing-header {
+            background: linear-gradient(135deg, var(--primary-navy), #1a3a8a);
+            color: var(--pure-white);
+            padding: var(--section-padding) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+        }
+
+        .pricing-header h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .pricing-header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .disclaimer-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 12px;
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .disclaimer-box i {
+            color: var(--accent-cyan);
+            margin-right: 0.5rem;
+        }
+
+        /* Technologies Section */
+        .technologies-section {
+            padding: var(--section-padding) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-navy);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            border-radius: 2px;
+        }
+
+        .technologies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: var(--pure-white);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 191, 255, 0.15);
+            border-color: var(--accent-cyan);
+        }
+
+        .tech-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-navy), var(--accent-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .tech-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            margin-bottom: 1rem;
+        }
+
+        .tech-card .best-for {
+            display: inline-block;
+            background: var(--light-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-card li::before {
+            content: '✓';
+            color: var(--success-green);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Pricing Factors */
+        .pricing-factors {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: var(--section-padding) 0;
+            border-radius: 0 0 40px 40px;
+        }
+
+        .factors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .factor-card {
+            background: var(--pure-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .factor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .factor-icon {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .factor-card h4 {
+            font-family: var(--font-heading);
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sample Pricing */
+        .sample-pricing {
+            padding: var(--section-padding) 0;
+        }
+
+        .price-disclaimer {
+            text-align: center;
+            color: var(--warning-orange);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--pure-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+        }
+
+        .pricing-table thead {
+            background: linear-gradient(90deg, var(--primary-navy), #1a3a8a);
+            color: white;
+        }
+
+        .pricing-table th {
+            padding: 1.5rem;
+            text-align: left;
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        .pricing-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-table tr:hover {
+            background: rgba(0, 191, 255, 0.05);
+        }
+
+        .price-high {
+            color: var(--primary-navy);
+            font-weight: 700;
+        }
+
+        .price-low {
+            color: var(--success-green);
+            font-weight: 700;
+        }
+
+        /* Capabilities Notice */
+        .capabilities-notice {
+            padding: var(--section-padding) 0;
+            background: linear-gradient(135deg, var(--primary-navy), #1a3a8a);
+            color: white;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .notice-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .notice-box h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .notice-box h2 i {
+            color: var(--accent-cyan);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .notice-box p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            box-shadow: 0 5px 20px rgba(0, 191, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.4);
+        }
+
+        /* Additional Services */
+        .additional-services {
+            padding: var(--section-padding) 0;
+            background: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: var(--pure-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-item i {
+            color: var(--accent-cyan);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-cyan);
+            color: var(--pure-white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-weight: 600; font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .back-btn:hover {
+            background: transparent; border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .pricing-footer {
+            background: var(--dark-text);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .technologies-grid,
+            .factors-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .notice-box {
+                padding: 2rem 1.5rem;
+            }
+            
+            .notice-box h2 {
+                font-size: 1.8rem;
+                flex-direction: column;
+            }
+        }
+    
+
+/* Orange Theme Overlay - Add to existing CSS without HTML changes */
+
+/* 1. BUTTON ACCENTS */
+.btn-primary,
+.cta-button,
+.submit-btn,
+.view-all-btn {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--primary-orange)) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:hover,
+.cta-button:hover,
+.submit-btn:hover,
+.view-all-btn:hover {
+    background: linear-gradient(90deg, var(--primary-orange), var(--accent-cyan)) !important;
+    transform: translateY(-2px);
+}
+
+/* 2. LINK HOVER EFFECTS */
+a:not(.btn):hover {
+    color: var(--primary-orange) !important;
+}
+
+/* 3. FORM FOCUS STATES */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--primary-orange) !important;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1) !important;
+}
+
+/* 4. BORDER ACCENTS */
+.tech-card,
+.factor-card,
+.portfolio-card,
+.masonry-item {
+    border: 2px solid transparent !important;
+    transition: border-color 0.3s ease !important;
+}
+
+.tech-card:hover,
+.factor-card:hover,
+.portfolio-card:hover,
+.masonry-item:hover {
+    border-color: var(--primary-orange) !important;
+}
+
+/* 5. TEXT ACCENTS */
+h1, h2, h3, h4 {
+    position: relative;
+}
+
+h1::after,
+h2.section-title::after,
+.gallery-header-text h1::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 0 !important;
+    width: 60px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--primary-orange), var(--accent-cyan)) !important;
+    border-radius: 2px !important;
+}
+
+/* Center align for centered headings */
+.gallery-header-text h1::after,
+.section-title::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* 6. TABLE ENHANCEMENTS */
+.pricing-table thead {
+    background: linear-gradient(90deg, var(--primary-navy), #1a3a8a) !important;
+}
+
+.pricing-table tr:hover {
+    background: linear-gradient(90deg, 
+        rgba(255, 107, 53, 0.05), 
+        rgba(0, 191, 255, 0.05)
+    ) !important;
+}
+
+/* 7. BADGES & LABELS */
+.status-badge,
+.tag,
+.badge {
+    background: var(--light-orange) !important;
+    color: var(--dark-orange) !important;
+}
+
+/* 8. FOOTER ACCENT */
+.gallery-footer,
+.pricing-footer {
+    position: relative;
+}
+
+.gallery-footer::before,
+.pricing-footer::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, var(--primary-orange), var(--accent-cyan)) !important;
+}
+
+/* 9. NAVIGATION ENHANCEMENTS */
+.nav-link,
+.gallery-nav a:not(.back-btn) {
+    position: relative !important;
+}
+
+.nav-link::after,
+.gallery-nav a:not(.back-btn)::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 2px !important;
+    background: var(--primary-orange) !important;
+    transition: width 0.3s ease !important;
+}
+
+.nav-link:hover::after,
+.gallery-nav a:not(.back-btn):hover::after {
+    width: 100% !important;
+}
+
+/* 10. BACK BUTTON STYLING */
+.back-btn {
+    background: var(--primary-orange) !important;
+    border-color: var(--primary-orange) !important;
+}
+
+.back-btn:hover {
+    background: transparent !important;
+    color: var(--primary-orange) !important;
+}
+
+/* 11. LOADING STATES */
+.fa-spinner {
+    color: var(--primary-orange) !important;
+}
+
+/* 12. SUCCESS MESSAGES */
+.form-success {
+    background: linear-gradient(135deg, 
+        rgba(40, 167, 69, 0.1), 
+        rgba(255, 107, 53, 0.1)
+    ) !important;
+    border-left: 4px solid var(--primary-orange) !important;
+}
+
+/* 13. ACTION BUTTONS */
+.action-btn {
+    border: none !important;
+}
+
+.action-contact {
+    background: var(--accent-cyan) !important;
+}
+
+.action-quote {
+    background: var(--primary-orange) !important;
+}
+
+.action-close {
+    background: var(--danger-red) !important;
+}
+
+/* 14. PROGRESS INDICATORS */
+.loader {
+    border-top-color: var(--primary-orange) !important;
+}
+
+/* 15. HIGHLIGHT TEXT */
+.price-high {
+    color: var(--primary-orange) !important;
+}
+
+.price-low {
+    color: var(--success-green) !important;
+}
+
+/* 16. NOTICE BOXES */
+.disclaimer-box,
+.notice-box {
+    border-color: var(--primary-orange) !important;
+}
+
+/* 17. SERVICE ITEM ICONS */
+.service-item i {
+    color: var(--primary-orange) !important;
+}
+
+/* 18. TEST BUTTON STYLING */
+#testAutoLogin {
+    background: linear-gradient(90deg, #ff9800, var(--primary-orange)) !important;
+}
+
+#testDirectDashboard {
+    background: linear-gradient(90deg, #9c27b0, #673ab7) !important;
+}
+
+/* 19. GRADIENT BORDERS */
+.tech-card,
+.factor-card {
+    position: relative;
+    background: var(--pure-white) !important;
+}
+
+.tech-card::before,
+.factor-card::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    padding: 2px !important;
+    border-radius: 14px !important;
+    background: linear-gradient(135deg, var(--primary-orange), var(--accent-cyan)) !important;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0) !important;
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask-composite: exclude !important;
+    pointer-events: none !important;
+}
+
+/* 20. SUBTLE BACKGROUNDS */
+.pricing-factors {
+    background: linear-gradient(135deg, 
+        rgba(255, 214, 184, 0.2), 
+        rgba(248, 249, 250, 1)
+    ) !important;
+}
+
+/* Orange color variables - ADD THESE TO YOUR :root */
+:root {
+    --primary-orange: #FF6B35;
+    --secondary-orange: #FF9A3D;
+    --light-orange: #FFD6B8;
+    --dark-orange: #E55A2B;
+}
+
+
+
+    
+    </style>
+
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="pricing-header">
+        <div class="container">
+            <h1>Custom Branding Solutions</h1>
+            <p class="subtitle">Premium customization across all materials with transparent, flexible pricing that works for your budget</p>
+            
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+
+            <div class="disclaimer-box">
+                <p><i class="fas fa-exclamation-circle"></i> <strong>Important:</strong> All prices shown are guidelines. Actual quotes are customized based on your specific project requirements, quantity, and materials.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Technologies Section -->
+    <section class="technologies-section">
+        <div class="container">
+            <h2 class="section-title">Our Customization Technologies</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: var(--gray-text);">
+                We use three main technologies to bring your branding vision to life on any surface
+            </p>
+            
+            <div class="technologies-grid">
+                <!-- Laser Engraving -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Laser Engraving</h3>
+                    <span class="best-for">Best for premium, textured finishes</span>
+                    <ul>
+                        <li>Bamboo Cutting Boards & Cups</li>
+                        <li>Wooden Business Cards</li>
+                        <li>Desk Name Plates</li>
+                        <li>Coaster Sets (4 Pieces)</li>
+                        <li>Leatherette Patch Hats</li>
+                        <li>Kitchenware & Accessories</li>
+                    </ul>
+                    <p><strong>Pricing:</strong> Based on design size & material</p>
+                </div>
+
+                <!-- DTF Printing -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>DTF Printing</h3>
+                    <span class="best-for">Best for vibrant, full-color apparel</span>
+                    <ul>
+                        <li>Branded T-Shirts (Cotton/Poly)</li>
+                        <li>Premium Hoodies & Sweatshirts</li>
+                        <li>Canvas Tote Bags</li>
+                        <li>Workwear Overalls</li>
+                        <li>DTF Transfers (A4 Sheets)</li>
+                        <li>All fabric-based items</li>
+                    </ul>
+                    <p><strong>Note:</strong> Bulk orders receive significant discounts</p>
+                </div>
+
+                <!-- UV Printing -->
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3>UV Light Printing</h3>
+                    <span class="best-for">Best for durable hard surfaces</span>
+                    <ul>
+                        <li>Executive Branded Pens</li>
+                        <li>Custom Phone Cases</li>
+                        <li>Branded Power Banks</li>
+                        <li>Acrylic Awards & Trophies</li>
+                        <li>Coffee & Beer Mugs</li>
+                        <li>Office Signage & Plaques</li>
+                    </ul>
+                    <p><strong>Application:</strong> Virtually any hard surface</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Factors -->
+    <section class="pricing-factors">
+        <div class="container">
+            <h2 class="section-title">Why Prices Vary</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: var(--gray-text);">
+                Every project is unique. Here are the factors that influence your final quote:
+            </p>
+            
+            <div class="factors-grid">
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h4>Quantity</h4>
+                    <p>More items = Better price per unit. Bulk orders receive the best rates.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4>Design Complexity</h4>
+                    <p>Simple logo vs. full-color artwork. Complex designs require more setup.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h4>Materials</h4>
+                    <p>Wood, fabric, metal, glass - each material has different costs and processing requirements.</p>
+                </div>
+                
+                <div class="factor-card">
+                    <div class="factor-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Timeline</h4>
+                    <p>Standard turnaround vs. express service. Faster delivery may affect pricing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Pricing -->
+    <section class="sample-pricing">
+        <div class="container">
+            <h2 class="section-title">Sample Price Ranges</h2>
+            <p class="price-disclaimer">
+                <i class="fas fa-info-circle"></i> These are GUIDELINES only - actual quotes are customized
+            </p>
+            
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Item / Service</th>
+                        <th>Single Unit</th>
+                        <th>50+ Units</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>DTF - Cotton T-Shirt</strong></td>
+                        <td class="price-high">$8.00</td>
+                        <td class="price-low">$6.00</td>
+                        <td>Vibrant full-color printing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DTF - Premium Hoodie</strong></td>
+                        <td class="price-high">$12.00</td>
+                        <td class="price-low">$10.00</td>
+                        <td>Front & back printing available</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DTF - Canvas Tote Bag</strong></td>
+                        <td class="price-high">$5.00</td>
+                        <td class="price-low">$3.50</td>
+                        <td>Eco-friendly option</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DTF Transfers (A4 Sheet)</strong></td>
+                        <td class="price-high">$5.00</td>
+                        <td class="price-low">$3.00</td>
+                        <td>20+ sheet discount</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Laser - Coaster Set (4)</strong></td>
+                        <td class="price-high">$15.00</td>
+                        <td class="price-low">$12.00</td>
+                        <td>Bamboo or wood</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UV - Custom Mug</strong></td>
+                        <td class="price-high">$7.00</td>
+                        <td class="price-low">$5.00</td>
+                        <td>Ceramic or stainless steel</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UV - Branded Pen</strong></td>
+                        <td class="price-high">$4.00</td>
+                        <td class="price-low">$2.50</td>
+                        <td>Executive style</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p style="text-align: center; color: var(--gray-text); font-style: italic; max-width: 800px; margin: 0 auto;">
+                <i class="fas fa-handshake"></i> All pricing is negotiable for large orders or ongoing partnerships. We work with all budget levels.
+            </p>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="additional-services">
+        <div class="container">
+            <h2 class="section-title">Additional Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-drafting-compass"></i>
+                    <h4>Graphic Design</h4>
+                    <p>Custom artwork creation</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-redo"></i>
+                    <h4>Logo Redrawing</h4>
+                    <p>Vector conversion & cleanup</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Express Service</h4>
+                    <p>Rush order processing</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-truck"></i>
+                    <h4>Delivery</h4>
+                    <p>Nationwide shipping</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h4>Sample Creation</h4>
+                    <p>Preview before bulk order</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Notice -->
+    <section class="capabilities-notice">
+        <div class="container">
+            <div class="notice-box">
+                <h2>
+                    <i class="fas fa-lightbulb"></i>
+                    Important Notice About Our Capabilities
+                </h2>
+                
+                <p><strong>Our services are NOT limited to the items mentioned above.</strong></p>
+                
+                <p>We specialize in custom solutions for virtually ANY item. If it can be branded, engraved, or printed on, we can probably do it.</p>
+                
+                <p style="font-size: 1.3rem; margin: 2rem 0; color: var(--accent-cyan);">
+                    <i class="fas fa-quote-left"></i>
+                    Don't see what you need? Just ask!
+                    <i class="fas fa-quote-right"></i>
+                </p>
+                
+                <p>From unusual materials to unique product ideas, we love creative challenges. Send us a picture or description of what you have in mind, and we'll tell you if we can make it happen.</p>
+                
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-comments"></i> Discuss Your Custom Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pricing-footer">
+        <div class="footer-content">
+            <h3 style="font-family: var(--font-heading); margin-bottom: 1.5rem;">Ready to Start Your Project?</h3>
+            <p style="opacity: 0.8; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Contact us for a personalized quote that considers your specific needs, budget, and timeline.
+            </p>
+            <p style="opacity: 0.6; font-size: 0.9rem;">
+                &copy; 2026 Altec Branding & Printing. All prices subject to change. Quotes valid for 30 days.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all tech cards and factor cards
+            document.querySelectorAll('.tech-card, .factor-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Add hover effect to pricing table rows
+            const tableRows = document.querySelectorAll('.pricing-table tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = 'rgba(0, 191, 255, 0.05)';
+                });
+                row.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = '';
+                });
+            });
+                            // Simple navigation to index.html#contact
+                document.querySelector('.cta-button').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Store in sessionStorage that we're coming from pricing page
+                    sessionStorage.setItem('fromPricing', 'true');
+                    
+                    // Navigate to contact section on main page
+                    window.location.href = 'index.html#contact';
+                });
+        });
+    </script>
+</body>
+</html>

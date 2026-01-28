@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery | Our Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="icon" type="image/x-icon" href="images\WhatsApp Image 2026-01-15 at 12.22.27 PM.jpeg">
+    
+    <!-- Keep your existing CSS here -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-navy: #0A2463;
+            --accent-cyan: #00BFFF;
+            --accent-magenta: #FF00FF;
+            --light-bg: #F8F9FA;
+            --dark-text: #212529;
+            --gray-text: #6C757D;
+            --pure-white: #FFFFFF;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --section-padding: clamp(3rem, 8vw, 6rem);
+        }
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--light-bg);
+        }
+        /* Add just the necessary styles */
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--light-bg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        .loading-overlay.hidden { opacity: 0; pointer-events: none; }
+        .loader {
+            width: 60px; height: 60px;
+            border: 4px solid rgba(10, 36, 99, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--accent-cyan);
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .gallery-header {
+            background: var(--primary-navy);
+            padding: 1.5rem var(--section-padding);
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px; margin: 0 auto;
+        }
+        .gallery-title {
+            color: var(--pure-white);
+            font-family: var(--font-heading);
+            font-size: 1.8rem; font-weight: 600;
+        }
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-cyan);
+            color: var(--pure-white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-weight: 600; font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .back-btn:hover {
+            background: transparent; border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+        .gallery-container {
+            max-width: 1400px; margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .gallery-header-text {
+            text-align: center; margin-bottom: 3rem;
+        }
+        .gallery-header-text h1 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem; color: var(--primary-navy);
+            margin-bottom: 1rem; position: relative;
+            display: inline-block;
+        }
+        .gallery-header-text h1:after {
+            content: ''; position: absolute;
+            bottom: -10px; left: 50%; transform: translateX(-50%);
+            width: 80px; height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            border-radius: 2px;
+        }
+        .masonry-grid {
+            columns: 4; column-gap: 1.5rem;
+        }
+        .masonry-item {
+            break-inside: avoid; margin-bottom: 1.5rem;
+            position: relative; border-radius: 12px;
+            overflow: hidden; background: var(--pure-white);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .masonry-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 191, 255, 0.15);
+        }
+        .gallery-img {
+            width: 100%; height: auto; display: block;
+            transition: transform 0.5s ease;
+        }
+        .masonry-item:hover .gallery-img { transform: scale(1.03); }
+        .img-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(10, 36, 99, 0.9), transparent);
+            color: white; padding: 1.5rem;
+            transform: translateY(100%); transition: transform 0.3s ease;
+        }
+        .masonry-item:hover .img-overlay { transform: translateY(0); }
+        .img-number {
+            font-family: var(--font-heading);
+            font-size: 0.9rem; font-weight: 600;
+            color: var(--accent-cyan); margin-bottom: 0.5rem;
+        }
+        .gallery-footer {
+            text-align: center; padding: 2.5rem;
+            margin-top: 3rem; background: var(--primary-navy);
+            color: var(--pure-white);
+        }
+        @media (max-width: 1200px) { .masonry-grid { columns: 3; } }
+        @media (max-width: 900px) { .masonry-grid { columns: 2; } }
+        @media (max-width: 600px) { .masonry-grid { columns: 1; } }
+
+
+/* ==================== */
+/* ORANGE THEME FOR GALLERY */
+/* Add these styles to existing gallery.css */
+/* ==================== */
+
+/* 1. Add orange color variables */
+:root {
+    --primary-orange: #FF6B35;
+    --secondary-orange: #FF9A3D;
+    --light-orange: #FFD6B8;
+    --dark-orange: #E55A2B;
+}
+
+/* 2. Back button with orange accent */
+.back-btn {
+    background: var(--primary-orange) !important;
+    border-color: var(--primary-orange) !important;
+}
+
+.back-btn:hover {
+    background: transparent !important;
+    color: var(--primary-orange) !important;
+    border-color: var(--primary-orange) !important;
+    transform: translateY(-2px);
+}
+
+/* 3. Gallery title underline with orange gradient */
+.gallery-header-text h1::after {
+    background: linear-gradient(90deg, var(--primary-orange), var(--accent-cyan)) !important;
+    width: 100px !important;
+}
+
+/* 4. Masonry items with orange hover effects */
+.masonry-item {
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.masonry-item:hover {
+    transform: translateY(-8px) !important;
+    border-color: var(--primary-orange) !important;
+    box-shadow: 
+        0 15px 35px rgba(0, 191, 255, 0.1),
+        0 10px 25px rgba(255, 107, 53, 0.15) !important;
+}
+
+/* 5. Image overlay gradient with orange */
+.img-overlay {
+    background: linear-gradient(
+        to top, 
+        rgba(10, 36, 99, 0.95), 
+        rgba(255, 107, 53, 0.7),
+        transparent
+    ) !important;
+}
+
+/* 6. Image number with orange color */
+.img-number {
+    color: var(--primary-orange) !important;
+    font-size: 1rem !important;
+}
+
+/* 7. Footer accent line */
+.gallery-footer {
+    position: relative;
+}
+
+.gallery-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-orange), var(--accent-cyan));
+    border-radius: 0 0 2px 2px;
+}
+
+/* 8. Loading spinner with orange */
+.loader {
+    border-top-color: var(--primary-orange) !important;
+    border-width: 5px !important;
+}
+
+.loading-text {
+    color: var(--primary-orange) !important;
+    font-weight: 600;
+}
+
+/* 9. Error/placeholder styling */
+.image-error {
+    background: linear-gradient(135deg, var(--primary-navy), var(--primary-orange)) !important;
+}
+
+.error-icon {
+    color: var(--light-orange) !important;
+}
+
+/* 10. Gallery header enhancement */
+.gallery-header {
+    background: linear-gradient(90deg, var(--primary-navy), #1a3a8a) !important;
+    border-bottom: 3px solid var(--primary-orange) !important;
+}
+
+/* 11. Image hover effect enhancement */
+.gallery-img {
+    transition: transform 0.5s ease, filter 0.3s ease !important;
+}
+
+.masonry-item:hover .gallery-img {
+    transform: scale(1.05) !important;
+    filter: brightness(1.05) contrast(1.05) !important;
+}
+
+/* 12. Responsive enhancements */
+@media (max-width: 768px) {
+    .gallery-header-text h1::after {
+        width: 70px !important;
+        height: 3px !important;
+    }
+    
+    .back-btn {
+        padding: 0.6rem 1.2rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* 13. Progress indicator */
+.loading-progress {
+    color: var(--primary-orange) !important;
+    font-weight: 600;
+}
+
+/* 14. Stats counter in footer */
+#totalImages, #loadedImages {
+    color: var(--primary-orange) !important;
+    font-weight: bold;
+}
+
+/* 15. Subtle background pattern for gallery */
+.gallery-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 191, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 16. Image description styling */
+.img-description {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    color: var(--light-orange) !important;
+}
+
+/* 17. Hover state for image numbers */
+.img-number {
+    position: relative;
+    display: inline-block;
+}
+
+.img-number::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--light-orange);
+    transition: width 0.3s ease;
+}
+
+.masonry-item:hover .img-number::after {
+    width: 100%;
+}
+
+/* 18. Active state for current image */
+.masonry-item:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
+}
+
+/* 19. Focus states for accessibility */
+.back-btn:focus,
+.gallery-img:focus {
+    outline: 2px solid var(--primary-orange) !important;
+    outline-offset: 2px;
+}
+
+/* 20. Print styles */
+@media print {
+    .gallery-header,
+    .gallery-footer,
+    .back-btn,
+    .img-overlay {
+        display: none !important;
+    }
+    
+    .masonry-grid {
+        columns: 2 !important;
+    }
+    
+    .masonry-item {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+        <div class="loading-text">Loading Gallery...</div>
+        <div class="loading-progress" id="loadingProgress">0 images loaded</div>
+    </div>
+    
+    <header class="gallery-header">
+        <nav class="gallery-nav">
+            <h1 class="gallery-title">Project Gallery</h1>
+            <a href="index.html#portfolio" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="gallery-container">
+        <div class="gallery-header-text">
+            <h1>A Glimpse of our Portfolio!</h1>
+            <p>Explore our extensive collection of past projects. Each image represents our dedication to quality and innovation.</p>
+        </div>
+
+        <div class="masonry-grid" id="galleryGrid">
+            <!-- Images will be inserted here by JavaScript -->
+        </div>
+        
+        <!-- Error message container -->
+        <div id="errorContainer" style="display: none; text-align: center; padding: 3rem; color: var(--gray-text);">
+            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 1rem; color: #ff6b6b;"></i>
+            <h2 style="font-family: var(--font-heading); margin-bottom: 1rem;">Unable to Load Images</h2>
+            <p style="margin-bottom: 1.5rem;">Please check that the images are in the correct folder.</p>
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; max-width: 500px; margin: 0 auto; text-align: left;">
+                <p><strong>Expected image path:</strong> <code>images/filename.jpg</code></p>
+                <p style="margin-top: 0.5rem;"><strong>Make sure:</strong></p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>The <code>images</code> folder exists in your project</li>
+                    <li>All image files are in the <code>images</code> folder</li>
+                    <li>Image filenames match exactly</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="gallery-footer">
+        <p>© 2026 Our Portfolio. All project images are protected and owned by our company.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+            <i class="fas fa-image"></i> Total Projects: <span id="totalImages">0</span> | 
+            Loaded: <span id="loadedImages">0</span>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const loadingProgress = document.getElementById('loadingProgress');
+            const totalImagesSpan = document.getElementById('totalImages');
+            const loadedImagesSpan = document.getElementById('loadedImages');
+            
+            // Your EXACT image filenames from the list
+            const imageFiles = [
+                
+                'altec.jpg',
+                'brand1.jpeg',
+                'brand2.jpeg',
+                'brand3.jpeg',
+                'business2.jpeg',
+                'natashabells.jpeg',
+                'promo client.jpeg',
+                'schooljersey.jpeg',
+                'WhatsApp Image 2026-01-15 at 12.22.27 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.16.56 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.14 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.15 PM (1).jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.15 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.18 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.19 PM (1).jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.19 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.20 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.21 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.23 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.19.24 PM (1).jpeg',
+                'WhatsApp Image 2026-01-20 at 3.21.54 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.21.55 PM (1).jpeg',
+                'WhatsApp Image 2026-01-20 at 3.28.52 PM.jpeg',
+                'WhatsApp Image 2026-01-20 at 3.28.53 PM (1).jpeg',
+                'WhatsApp Image 2026-01-20 at 3.28.54 PM (1).jpeg',
+                'WhatsApp Image 2026-01-20 at 3.28.54 PM.jpeg',
+                'zaoga.jpeg'
+            ];
+            
+            totalImagesSpan.textContent = imageFiles.length;
+            let loadedCount = 0;
+            let errorCount = 0;
+            
+            function updateProgress() {
+                loadedImagesSpan.textContent = loadedCount;
+                loadingProgress.textContent = `${loadedCount}/${imageFiles.length} images loaded`;
+                
+                if (loadedCount + errorCount === imageFiles.length) {
+                    setTimeout(() => {
+                        loadingOverlay.classList.add('hidden');
+                    }, 500);
+                }
+            }
+            
+            function createGalleryItem(imgSrc, index, filename) {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'masonry-item';
+                galleryItem.style.animationDelay = `${index * 0.03}s`;
+                
+                // Create a friendly title from filename
+                let displayName = filename
+                    .replace(/\.(jpg|jpeg|png|gif)$/i, '') // Remove extension
+                    .replace(/WhatsApp Image |PM |AM | at /g, '') // Clean WhatsApp names
+                    .replace(/\d{4}-\d{2}-\d{2}/g, '') // Remove dates
+                    .replace(/\(\d+\)/g, '') // Remove numbers in parentheses
+                    .replace(/\s+/g, ' ') // Collapse multiple spaces
+                    .trim();
+                
+                if (displayName.length > 30) {
+                    displayName = displayName.substring(0, 30) + '...';
+                }
+                
+                galleryItem.innerHTML = `
+                    <img 
+                        src="${imgSrc}" 
+                        alt="Project ${index + 1}: ${displayName}" 
+                        class="gallery-img"
+                        loading="lazy"
+                        data-index="${index}"
+                    >
+                    <div class="img-overlay">
+                        <div class="img-number">Project #${index + 1}</div>
+                        <div class="img-description">${displayName}</div>
+                    </div>
+                `;
+                
+                // Add click handler for modal
+                galleryItem.addEventListener('click', function() {
+                    openImageModal(imgSrc, `Project ${index + 1}: ${displayName}`);
+                });
+                
+                galleryGrid.appendChild(galleryItem);
+            }
+            
+            function createErrorItem(index, filename) {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'masonry-item';
+                galleryItem.style.animationDelay = `${index * 0.03}s`;
+                
+                galleryItem.innerHTML = `
+                    <div style="background: #0A2463; color: white; padding: 2rem; text-align: center; min-height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <i class="fas fa-file-image" style="font-size: 3rem; margin-bottom: 1rem; color: var(--accent-cyan);"></i>
+                        <h3 style="font-family: var(--font-heading); margin-bottom: 0.5rem;">Project #${index + 1}</h3>
+                        <p style="opacity: 0.9; font-size: 0.9rem; margin-bottom: 1rem;">${filename}</p>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">
+                            <i class="fas fa-exclamation-circle"></i> Image not loaded
+                        </p>
+                    </div>
+                    <div class="img-overlay">
+                        <div class="img-number">Project #${index + 1}</div>
+                        <div class="img-description">Image unavailable</div>
+                    </div>
+                `;
+                
+                galleryGrid.appendChild(galleryItem);
+            }
+            
+            function openImageModal(src, title) {
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.95);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                
+                modal.innerHTML = `
+                    <div style="position: absolute; top: 20px; right: 20px; z-index: 2001;">
+                        <button id="closeModal" style="background: none; border: none; color: white; font-size: 2rem; cursor: pointer; padding: 10px;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div style="max-width: 90%; max-height: 80%; display: flex; justify-content: center; align-items: center;">
+                        <img src="${src}" alt="${title}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px;">
+                    </div>
+                    <div style="color: white; margin-top: 20px; text-align: center; padding: 0 20px;">
+                        <h3 style="font-family: var(--font-heading); margin-bottom: 5px;">${title}</h3>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Click anywhere to close</p>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                function closeModal() {
+                    document.body.removeChild(modal);
+                    document.removeEventListener('keydown', handleKeyDown);
+                }
+                
+                function handleKeyDown(e) {
+                    if (e.key === 'Escape') closeModal();
+                }
+                
+                modal.addEventListener('click', closeModal);
+                document.getElementById('closeModal').addEventListener('click', closeModal);
+                document.addEventListener('keydown', handleKeyDown);
+            }
+            
+            // Load images one by one to avoid overwhelming the browser
+            async function loadImagesSequentially() {
+                for (let i = 0; i < imageFiles.length; i++) {
+                    const filename = imageFiles[i];
+                    await loadSingleImage(filename, i);
+                    // Small delay between loads
+                    await new Promise(resolve => setTimeout(resolve, 50));
+                }
+            }
+            
+            function loadSingleImage(filename, index) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    
+                    // Try different possible paths
+                    const possiblePaths = [
+                        `images/${filename}`,          // images/filename.jpg
+                        `./images/${filename}`,        // ./images/filename.jpg
+                        `assets/images/${filename}`,   // assets/images/filename.jpg
+                        `../images/${filename}`,       // ../images/filename.jpg (if gallery is in subfolder)
+                        `${filename}`                  // Just the filename (if in same folder)
+                    ];
+                    
+                    let currentPathIndex = 0;
+                    
+                    function tryNextPath() {
+                        if (currentPathIndex >= possiblePaths.length) {
+                            // All paths failed
+                            createErrorItem(index, filename);
+                            errorCount++;
+                            updateProgress();
+                            console.error(`Failed to load: ${filename}`);
+                            resolve(false);
+                            return;
+                        }
+                        
+                        const path = possiblePaths[currentPathIndex];
+                        img.src = path;
+                        
+                        img.onload = function() {
+                            console.log(`Successfully loaded: ${path}`);
+                            createGalleryItem(path, index, filename);
+                            loadedCount++;
+                            updateProgress();
+                            resolve(true);
+                        };
+                        
+                        img.onerror = function() {
+                            console.warn(`Failed path ${currentPathIndex + 1}: ${path}`);
+                            currentPathIndex++;
+                            setTimeout(tryNextPath, 100);
+                        };
+                    }
+                    
+                    tryNextPath();
+                });
+            }
+            
+            // Start loading images
+            loadImagesSequentially().then(() => {
+                console.log(`Loading complete. Success: ${loadedCount}, Failed: ${errorCount}`);
+            }).catch(error => {
+                console.error('Error loading images:', error);
+                loadingOverlay.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
