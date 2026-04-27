@@ -23,3 +23,8 @@ JavaScript: Logic for mobile navigation and interactive elements.<br>
 GSAP & ScrollTrigger: Advanced UI/UX animations.<br>
 Leaflet.js: Open-source interactive maps.<br>
 Font Awesome: Vector icons.
+
+
+# 📄 License
+Distributed under the MIT License. See LICENSE for more information.
+© 2026 M.Kundai
