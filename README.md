@@ -1,6 +1,3 @@
-# Altec-Branding-Website
-Printing and Branding Business Website
-
 
 # ALTEC BRANDING | Precision Printing & Branding
 ALTEC BRANDING is a high-quality custom printing and branding service provider. This repository contains the source code for the official business website, designed to showcase services, portfolios and streamline client inquiries for individuals, corporate clients, schools and events.
